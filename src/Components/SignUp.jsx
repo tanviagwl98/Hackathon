@@ -1,5 +1,5 @@
-import React, { useState } from "./node_modules/react";
-import { Link } from "./node_modules/@reach/router";
+import React, { useState } from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { generateUserDocument } from '../firebase'
 
@@ -8,7 +8,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
+  
+const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
@@ -22,6 +23,7 @@ const SignUp = () => {
     setPassword("");
     setDisplayName("");
   };
+
   const onChangeHandler = event => {
     const { name, value } = event.currentTarget;
     if (name === "userEmail") {

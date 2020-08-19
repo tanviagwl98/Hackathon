@@ -1,6 +1,8 @@
 import React from "react";
 import Application from "./Components/Application";
 import UserProvider from "./providers/UserProvider";
+
+
 function App() {
   return (
     <UserProvider>
@@ -10,31 +12,34 @@ function App() {
 }
 export default App;
 
-
 /*
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
+import {
+  BrowserRouter as 
+  Router, 
+  Route,
+  Switch
+} from 'react-router-dom';
+
+import SignIn from './Components/SignIn';
+import ProfilePage from './Components/ProfilePage';
+
+class App extends Component
+ {
+  render() { 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    //<div className="App">  
+      <Router>
+        <Switch>
+        <Route exact path = '/' component={SignIn}/>
+        <Route component={ProfilePage}/>
+</Switch>
+      </Router>
+      //<SignIn/>
+    //</div>
+   );
+}
 }
 
 export default App;

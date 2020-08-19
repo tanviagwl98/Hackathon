@@ -1,32 +1,34 @@
-import React, { useState } from "./node_modules/react";
-import { Link } from "./node_modules/@reach/router";
+import React, { useState } from "react";
+import {BrowserRouter as Link } from "react-router-dom";
 import { auth } from "../firebase";
-
+//import firebase from "firebase";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
   const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
   const [error, setError] = useState(null);
-  const onChangeHandler = event => {
+
+  const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
     if (name === "userEmail") {
       setEmail(value);
     }
   };
 
-  const sendResetEmail = event => {
+  const sendResetEmail = (event) => {
     event.preventDefault();
-    auth
-      .sendPasswordResetEmail(email)
+    auth().sendPasswordResetEmail(email)
       .then(() => {
         setEmailHasBeenSent(true);
-        setTimeout(() => {setEmailHasBeenSent(false)}, 3000);
+        setTimeout(() => {
+          setEmailHasBeenSent(false);
+        }, 3000);
       })
       .catch(() => {
         setError("Error resetting password");
       });
   };
-  
+
   return (
     <div className="mt-8">
       <h1 className="text-xl text-center font-bold mb-3">
@@ -43,6 +45,7 @@ const PasswordReset = () => {
             <div className="py-3 bg-red-600 w-full text-white text-center mb-3">
               {error}
             </div>
+            
           )}
           <label htmlFor="userEmail" className="w-full block">
             Email:
@@ -56,14 +59,16 @@ const PasswordReset = () => {
             onChange={onChangeHandler}
             className="mb-3 w-full px-1 py-2"
           />
+          
           <button
+          onClick = {sendResetEmail}
             className="w-full bg-blue-400 text-white py-3"
           >
             Send me a reset link
           </button>
         </form>
         <Link
-         to ="/"
+          to="/"
           className="my-2 text-blue-700 hover:text-blue-800 text-center block"
         >
           &larr; back to sign in page
@@ -72,4 +77,5 @@ const PasswordReset = () => {
     </div>
   );
 };
+
 export default PasswordReset;

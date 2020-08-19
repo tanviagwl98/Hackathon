@@ -3,19 +3,18 @@ import "firebase/auth";
 import "firebase/firestore";
 
 // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAuTSA7pBObGjkfskQabiek-jcgJcqh9cs",
-    authDomain: "bsocial-ae077.firebaseapp.com",
-    databaseURL: "https://bsocial-ae077.firebaseio.com",
-    projectId: "bsocial-ae077",
-    storageBucket: "bsocial-ae077.appspot.com",
-    messagingSenderId: "636463748309",
-    appId: "1:636463748309:web:9713d1005540fc0d0e7e5c",
-    measurementId: "G-7TD9DM0NEL"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+var firebaseConfig = {
+  apiKey: "AIzaSyAuTSA7pBObGjkfskQabiek-jcgJcqh9cs",
+  authDomain: "bsocial-ae077.firebaseapp.com",
+  databaseURL: "https://bsocial-ae077.firebaseio.com",
+  projectId: "bsocial-ae077",
+  storageBucket: "bsocial-ae077.appspot.com",
+  messagingSenderId: "636463748309",
+  appId: "1:636463748309:web:9713d1005540fc0d0e7e5c",
+  measurementId: "G-7TD9DM0NEL"
+};
+
+firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

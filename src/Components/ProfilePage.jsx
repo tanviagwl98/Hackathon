@@ -15,8 +15,7 @@ const ProfilePage = () => {
             height: "200px",
             width: "200px"
           }}
-          className="border border-blue-300"
-        ></div>
+          className="border border-blue-300"> </div>
         <div className = "md:pl-4">
         <h2 className = "text-2xl font-semibold">{displayName}</h2>
         <h3 className = "italic">{email}</h3>
