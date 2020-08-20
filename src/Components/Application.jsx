@@ -6,6 +6,8 @@ import SignUp from "./SignUp";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
+import "./Signin.css";
+
 function Application() {
   const user = useContext(UserContext);
   return (
@@ -19,6 +21,6 @@ function Application() {
         </Router>
       
   );
-}
+  }
 
 export default Application;

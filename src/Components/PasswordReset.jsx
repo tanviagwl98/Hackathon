@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { auth } from "../firebase";
 //import { UserContext } from "../providers/UserProvider";
 import { Link } from "@reach/router";
+import "./Signin.css";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -46,7 +47,7 @@ const PasswordReset = () => {
             </div>
           )}
           <label htmlFor="userEmail" className="w-full block">
-            Email:
+            Email
           </label>
           <input
             type="email"
@@ -56,13 +57,13 @@ const PasswordReset = () => {
             placeholder="Input your email"
             onChange={onChangeHandler}
             className="mb-3 w-full px-1 py-2"
-          />
+          />&nbsp; &nbsp;
           <button
             className="w-full bg-blue-400 text-white py-3"
             onClick={event => {
               sendResetEmail(event);
             }}
-          >
+          > 
             Send me a reset link
           </button>
         </form>
